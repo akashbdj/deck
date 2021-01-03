@@ -17,11 +17,9 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  justify-content: center;
 }
 
 .App-link {
@@ -34,5 +32,134 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.container {
+  width: 70%;
+  background-color: #2d353e;
+  margin: 40px 0;
+  padding: 10px;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin: 5px 10px;
+}
+
+.btn.disable {
+  color: #596673 !important;
+  cursor: not-allowed;
+}
+
+.btn.show-card {
+  background-color: #47525d;
+  color: aliceblue;
+}
+
+.btn.show-card:hover:not(.disable) {
+  background-color: #57626d;
+  color: aliceblue;
+}
+
+
+.btn.reset-deck {
+  background-color: #282d33;
+  color:  #57626d;
+}
+
+.reset-deck:hover {
+  background-color: #1a1d21;
+  color:  #57626d;
+}
+
+
+.deck {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 150px;
+}
+
+.deck > div {
+  width: 10%;
+  height: 150px;
+  transform: translateX(-50%);
+}
+
+.deck-top {
+  background-color: #47525d;
+  position: absolute;
+  left: 51.2% !important;
+  z-index: 2;
+  border-left: 1px solid #3d4852;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.deck-mid {
+  background-color: #4e5863;
+  position: absolute;
+  left: 50.8% !important;
+  border-left: 1px solid #404a54;
+  z-index: 1;
+}
+
+.deck-bottom {
+  background-color: #4e5863;
+  position: absolute;
+  left: 50.4% !important;
+}
+
+.opened-cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0
+}
+
+.opened-card {
+  flex: 0 1 10%;
+  background-color: #47525d;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  animation: fadein 0.7s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .opened-card {
+    flex: 0 1 22%;
+    height: 100px;
+  }
+
+  .deck {
+    height: 100px;
+  }
+
+  .deck > div {
+    width: 25%;
+    height: 100px;
   }
 }
